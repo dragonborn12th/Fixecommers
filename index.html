@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PINEAPPLE STORE</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+
+    .pineapple-text {
+      font-size: 3em;
+      font-weight: bold;
+      text-align: center;
+      color: green;
+    }
+    .custom-glow {
+      font-size: 3em;
+      font-weight: bold;
+      text-align: center;
+      color: GREEN;
+      text-shadow: 0 0 10px WHITE;
+    }
+   
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+  }
+
+  .container {
+    background-color: #333; 
+    height: 700px; 
+    width: calc(100% - 40px); 
+    border-radius: 10px; 
+    overflow: hidden;
+    position: relative; 
+    margin: 20px auto; 
+  }
+
+  .container img {
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    display: block; 
+  }
+
+  .container-text {
+    position: absolute; 
+    top: 20px; 
+    left: 20px; 
+    color: red; 
+    font-size: 2.1em;
+    font-weight: bold; 
+  }
+  .container-text2 {
+    position: absolute; 
+    top: 20px; 
+    left: 20px; 
+    animation: ghostFadeIn 5s ease forwards; 
+    color:#8B008B; 
+    font-size: 9.7em;
+    font-weight: bold; 
+    transition: left 0.5s ease;
+  }
+
+  .learn-more-button {
+    position: absolute; 
+    bottom: 20px;
+    left: 20px; 
+    background-color: #4caf50; 
+    color: white; 
+    padding: 20px 20px; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer;
+  }
+  .pineapple-text {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 4em;
+      font-weight: bold;
+      color: #00FF7F;
+    }
+    
+    table {
+      width: 90%; 
+      margin: auto; 
+      top: 150%;
+    }
+    th, td {
+    border: none;
+    padding: 10px;
+    text-align: center;
+  }
+    .reservation-form-container {
+      background-color: #f0f0f0;
+      width: 40%;
+      margin: auto;
+      padding: 20px;
+      border-radius: 10px;
+      margin-left: 20px; 
+      float: left;
+    }
+    .reservation-form {
+      text-align: center;
+      margin-top: 20px; 
+      font-weight: bold; 
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    .form-label {
+      font-weight: bold;
+      color: #333;
+    }
+    .form-input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      text-align: left;
+      top: 100%;
+    }
+    .container-right {
+      float: right; 
+      width: 53%;
+      margin: auto; 
+      padding: 20px;
+      border-radius: 10px;
+      float: right; 
+      top: 50px; 
+      right: -250px; 
+    }
+    .connect-container {
+      clear: both; 
+      background-color: burlywood;
+      padding: 10px;
+      text-align: center;
+      margin-top: -150px;
+    }
+    .payment-container {
+      text-align: center;
+      color: #333;
+    }
+    .payment-form {
+      margin-top: 20px;
+    }
+    .form-check {
+      margin-bottom: 20px;
+    }
+    .form-check input {
+      margin-right: 10px;
+    }
+    .submit-button {
+      background-color: #4caf50; 
+      color: white; 
+      padding: 10px 20px; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer;
+    }
+    .connect-container {
+      background-color: burlywood;
+      padding: 10px;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 20px;
+    }
+
+    .connect-container h3 {
+      margin-bottom: 5px;
+    }
+
+    .connect-container a {
+      color: cornflowerblue;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    .icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .icon-container i {
+    font-size: 24px; 
+    margin: 0 10px; 
+  }
+  .navbar {
+  border: -1px solid white;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  margin-top: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: cornflowerblue;
+  margin-right: 10px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.highlight {
+  transition: color 0.3s;
+}
+
+.highlight:hover {
+  color: green;
+}
+
+.store-title {
+  color: cornflowerblue;
+  margin: 0;
+}
+
+.promo-text {
+  color: green;
+  margin: 0;
+}
+.product-container {
+      background-color: white;
+      width: 45%;
+      margin: 10px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .buy-button {
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    overflow: hidden;
+    transition: 0.5s;
+    margin-top: 20px;
+  }
+
+  .buy-button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4CAF50;
+    z-index: -1;
+    transition: transform 0.5s;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .buy-button:hover::before {
+    transform: scaleX(1);
+  }
+
+  .buy-button:hover {
+    color: white;
+  }
+
+  .buy-button span {
+    position: relative;
+    z-index: 1;
+  }  
+  .full-width-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hidden {
+      display: none;
+    }
+    .styled-text-box {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #f0f0f0;
+      border: 2px solid orange;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      font-size: 60px;
+      color: black;
+      font-weight: bold;
+    }
+    .second-container {
+      background-color: WHITE;
+      text-align: center;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 20px;
+    max-width: 1300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  .product-container {
+  width: 45%;
+  height: 750px;
+  margin: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+}
+
+.product-container:hover {
+  transform: scale(1.1); 
+}
+  .large-word p {
+  font-size: 150px; 
+  font-weight: bold; 
+  color: #4B0082; 
+}
+.connect-container img {
+  width: 20px; 
+  height: 20px; 
+  margin-right: 5px;
+}
+.zoomable-image {
+      width: 300px; 
+      transition: transform 0.3s; 
+    }
+     
+    .zoomable-image:hover {
+      transform: scale(1.2); 
+    }
+
+    .icon-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-icon {
+      margin-right: 10px; 
+      
+    }
+    .icon-container {
+  position: relative;
+}
+
+.icon-container a {
+  position: absolute;
+  top: 30%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.icon-container a img {
+  width: 90px; 
+  height: 90px; 
+  margin-top: -60px; 
+}
+.logo-container {
+      display: flex;
+      justify-content: center;
+    }
+    
+    .circle {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+    
+    .circle img {
+      width: 100%;
+      height: auto;
+    }
+    .box-container {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+    }
+    
+    .box {
+      width: 25%;
+      height: 500px;
+      background-color: #f0f0f0;
+      padding: 20px;
+      border-radius: 10px;
+      border: 2px solid #ccc;
+      box-shadow: 0 50px 50px rgba(0, 0, 0, 0.1);
+    }
+    .left-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-items: flex-start; 
+  flex-direction: column;
+      font-size: 50px;
+      font-weight: bold; 
+    }
+    .Center-box {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      font-size: 50px;
+      font-weight: bold; 
+    }
+    .right-box {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      font-size: 50px;
+      font-weight: bold; 
+      position: relative; 
+    }
+    .logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; 
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  transform: translateX(65%);
+  justify-content: center;
+  top: 10px; 
+  left: 50%; 
+}
+.logo2{
+  width: 200px;
+  height: 200px;
+  transform: translateX(10%);
+  justify-content: center;
+  top: 10px; 
+  left: 50%; 
+}
+.logo3{
+  width: 200px;
+  height: 200px;
+  transform: translateX(10%);
+  justify-content: center;
+  top: 100px; 
+  left: 50%; 
+}
+.animated {
+  animation-name: moveUp;
+  animation-duration: 2.5s;
+  animation-fill-mode: both;
+}
+
+@keyframes moveUp {
+  from {
+    opacity: 0;
+    transform: translateY(100px); 
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); 
+  }
+}
+.typing-animation {
+  overflow: hidden; 
+  white-space: nowrap; 
+  animation: typing 5s steps(40, end); 
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+.connect-container .animate {
+  animation: fadeInUp 1s ease forwards;
+}  
+.scrolled .container-text2 {
+  animation: ghostFadeIn 5s infinite linear; 
+  left: calc(50% - 480px); 
+}
+
+#changing-word {
+  display: inline-block;
+  position: relative; 
+  animation: changeWord 10s infinite;
+}
+
+@keyframes changeWord {
+  0%, 25% { 
+    opacity: 0;
+    transform: translateY(-5px);
+    filter: blur(5px);
+  } 
+  20%, 45% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+  50%, 75% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+  70%, 95% {
+    opacity: 0; 
+    transform: translateY(-5px); 
+    filter: blur(5px);
+  }
+}
+@keyframes shine {
+            0% { color: gold; }
+            50% { color: #ffd700; }
+            100% { color: gold; }
+        }
+
+        .shining-text {
+            animation: shine 1s infinite;
+        }
+
+        p.copyright {
+      position: relative;
+      font-family: sans-serif;
+      text-transform: uppercase;
+      font-size: 2em;
+      letter-spacing: 4px;
+      overflow: hidden;
+      background: linear-gradient(90deg, #000, #fff, #000);
+      background-repeat: no-repeat;
+      background-size: 80%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: rgba(255, 255, 255, 0);
+      animation: animate 7s linear infinite;
+    }
+    .profile-icon {
+    border-radius: 50%;
+    background-color: #ffa500; 
+    padding: 1px;
+    margin-top: 20px; 
+    margin-left: 20px; 
+  }
+  .cart-icon-container {
+  position: relative;
+  bottom: -50px; 
+  width: 100%;
+  height: 100%;
+}
+
+.cart-link {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 130px;
+  height: 130px;
+}
+
+.cart-img {
+  width: 100%;
+  height: auto;
+}
+
+    @keyframes animate {
+      0% {
+        background-position: -500%;
+      }
+      100% {
+        background-position: 500%;
+      }
+    }
+    .golden-button {
+    touch-action: manipulation;
+    display: inline-block;
+    outline: none;
+    font-family: inherit;
+    font-size: 1em;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 0.3em;
+    height: 2.75em;
+    line-height: 2.5em;
+    text-transform: uppercase;
+    padding: 0 1em;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+      inset 0 -2px 5px 1px rgba(139, 66, 8, 1),
+      inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+    background-image: linear-gradient(
+      160deg,
+      #a54e07,
+      #b47e11,
+      #fef1a2,
+      #bc881b,
+      #a54e07
+    );
+    border: 1px solid #a55d07;
+    color: rgb(120, 50, 5);
+    text-shadow: 0 2px 2px rgba(250, 227, 133, 1);
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    background-size: 100% 100%;
+    background-position: center;
+  }
+
+  .golden-button:focus,
+  .golden-button:hover {
+    background-size: 150% 150%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23),
+      inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+    border: 1px solid rgba(165, 93, 7, 0.6);
+    color: rgba(120, 50, 5, 0.8);
+  }
+
+  .golden-button:active {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(110, 80, 20, 0.4),
+      inset 0 -2px 5px 1px #b17d10, inset 0 -1px 1px 3px rgba(250, 227, 133, 1);
+  }
+  .create-account-btn {
+    margin-top: -80px; 
+  }
+  </style>
+</head>
+<body>
+<div class="pineapple-text">𝐏𝐈𝐍𝐄𝐀𝐏𝐏𝐋𝐄 <img src="images/pineapple_11159222.png" alt="Pineapple Logo" style="width: 50px; height: 50px;"></div> 
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="profile-icon-wrapper">
+<a href="personInfo.html"> 
+  <img src="images/profile.png" alt="Profile Icon" class="profile-icon" width="80" height="80">
+  </a>
+  
+</div>
+<div class="cart-icon-container">
+  <a href="purcahsezone.html" class="cart-link">
+    <img src="images/pngimg.com - shopping_cart_PNG48.png" alt="Cart Icon" class="cart-img">
+  </a>
+</div>
+
+<div class="navbar">
+  <a href="login.html" class="nav-link highlight golden-button">Logout</a>
+  <a href="AboutUs.html" class="nav-link highlight golden-button">About Us</a>
+  <a href="contactsupport.html" class="nav-link highlight golden-button">Contact Support</a>
+  <a href="refund.html" class="nav-link highlight golden-button">Refund Product</a>
+  <div style="margin-left:auto;">
+    <br>
+    <a href="createaccount.html" class="nav-link highlight golden-button create-account-btn" style="margin-left:10px;margin-top:-20px;">Create Another Account</a>
+  </div>
+</div> 
+
+<div class="container">
+  <img src="images/10af01556a288388978b776600033425.jpg" alt="Your Image">
+  <div class="container-text large-text">WELCOME TO OUR STORE</div>  
+  <div class="container-text2 large-word">
+    <p>𝑼𝑵𝑰𝑸𝑼𝑬𝑳𝒀 𝑭𝑹𝑬𝑺𝑯 <span id="changing-word">𝑻𝑨𝑺𝑻𝑬</span></p>
+    <a href="Learnmore.html"></a>
+  </div>
+</div>
+
+
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="custom-glow">꧁༺ 𝓙𝓞𝓢𝓗𝓤𝓐 𝓕𝓡𝓔𝓢𝓗𝓜𝓐𝓓𝓔 𝓟𝓘𝓝𝓔𝓐𝓟𝓟𝓛𝓔 ༻꧂</div>
+<div class="full-width-container">
+  <div class="video-container">
+    <video id="autoplay-video" class="hidden" autoplay muted loop>
+      <source src="images/2927941-uhd_4096_2160_24fps.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <div style="text-align: center; margin-top: 10px; margin-bottom: 20px;">
+  <div class="styled-text-box">What happens here</div>
+
+  <div class="second-container">
+  <h1>Pineapple House: Championing Organic Products</h1>
+  <p class="typing-animation">Experience the unrivaled freshness of Pineapple Paradise's handpicked pineapples, delivering a burst of tropical bliss with every bite.</p>
+  <p class="typing-animation">Savor the unique flavor profile of Pineapple Paradise's carefully cultivated fruit, crafted to perfection for a taste sensation unlike any other.</p>
+  <p class="typing-animation">Pineapples are not single fruits but clusters of berries fused together, making them a unique and delicious treat."</p>
+</div>
+
+<p style="color: orange; font-weight: bold; margin: 5px 0; font-size: 20px;">100% Authentic PINEAPPLE HOUSE MERCHANDISE</p>
+  </div>
+
+  <table align="center">
+  <tr>
+    <th>
+      <a href="product1.html" style="position: relative; display: block;">
+        <img src="images/kisspng-pineapple-candied-fruit-dried-fruit-auglis-original-pineapple-slices-5a948aaea41790.6721946115196842706721.png" alt="Image 1" class="zoomable-image">
+        <br>
+        <span style="color: seagreen;">Pineapple Chips</span>
+        <br>
+        <span style="color: orange; font-size: 1.5em;">₱50</span>
+        <br>
+        <a href="product1.html" class="golden-button">Buy</a>
+      </a>
+    </th>
+    <th>
+      <a href="product2.html" style="position: relative; display: block;">
+        <img src="images/ice cream.png" alt="Image 2" class="zoomable-image">
+        <br>
+        <span style="color: seagreen;">Pineapple Ice Cream</span>
+        <br>
+        <span style="color: orange; font-size: 1.5em;">₱20</span>
+        <br>
+        <a href="product2.html" class="golden-button">Buy</a>
+      </a>
+    </th>
+    <th>
+      <a href="product3.html" style="position: relative; display: block;">
+        <img src="images/—Pngtree—pineapple jam with bread vector_7674474.png" alt="Image 3" class="zoomable-image">
+        <br>
+        <span style="color: seagreen;">Pineapple Jam with Bread</span>
+        <br>
+        <span style="color: orange; font-size: 1.5em;">₱100</span>
+        <br>
+        <a href="product3.html" class="golden-button">Buy</a>
+      </a>
+    </th>
+  </tr>
+  <tr>
+    <th>
+      <a href="product4.html" style="position: relative; display: block;">
+        <img src="images/pngegg (1).png" alt="Image 4" class="zoomable-image">
+        <br>
+        <span style="color: seagreen;">Pineapple Juice</span>
+        <br>
+        <span style="color: orange; font-size: 1.5em;">₱15</span>
+        <br>
+        <a href="product4.html" class="golden-button">Buy</a>
+      </a>
+    </th>
+    <th>
+      <a href="product5.html" style="position: relative; display: block;">
+        <img src="images/pngegg (2).png" alt="Image 5" class="zoomable-image">
+        <br>
+        <span style="color: seagreen;">Pineapple Leaf Traditional T-Shirt</span>
+        <br>
+        <span style="color: orange; font-size: 1.5em;">₱250</span>
+        <br>
+        <a href="product5.html" class="golden-button">Buy</a>
+      </a>
+    </th>
+    <th>
+      <a href="product6.html" style="position: relative; display: block;">
+        <img src="images/pngegg (4).png" alt="Image 6" class="zoomable-image">
+        <br>
+        <span style="color: seagreen;">Pineapple Cake</span>
+        <br>
+        <span style="color: orange; font-size: 1.5em;">₱1,000</span>
+        <br>
+        <a href="product6.html" class="golden-button">Buy</a>
+      </a>
+    </th>
+  </tr>
+</table>
+
+
+  <div style="text-align: center; margin-top: 20px;">
+    <p style="font-weight: bold; color: red; font-size: 2.5em;">❀ꗥ～ꗥ❀  𝐎𝐔𝐑 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 ❀ꗥ～ꗥ❀</p>
+</div>
+
+<div class="box-container">
+  <div class="box left-box animated"> 
+    <div class="logo-container">
+      <img src="images/care.png" alt="Logo" class="logo">
+    </div>
+    <h3>Care Product</h3>
+    <p>Our team is available 24/7 to assist you with any inquiries or concerns you may have. Feel free to reach out to us via phone, email, or our online chat support. We look forward to hearing from you! </p>
+  </div>
+  <div class="box Center-box animated"> 
+    <div class="logo-container">
+      <img src="images/pngwing.com.png" alt="Logo2" class="logo2">
+    </div>
+    <h3>Contact</h3>
+    <p>At Pineapple Paradise, we take pride in delivering the freshest and most succulent pineapples directly to your doorstep. </p>
+  </div>
+  <div class="box right-box animated"> 
+    <div class="logo-container">
+      <img src="images/fmality.png" alt="Logo3" class="logo3">
+    </div>
+    <h3>Family Friendly</h3>
+    <p>Our dedicated service team is committed to providing you with exceptional customer service. Whether it's delivery assistance, product inquiries, or any other support you need, we're here to help.</p>
+  </div>
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div style="text-align: center; margin-top: 20px;">
+    <p style="font-weight: bold; color: red; font-size: 2.5em;">❀ꗥ～ꗥ❀ 𝐌𝐎𝐑𝐄 𝐏𝐑𝐎𝐃𝐔𝐂𝐓 ❀ꗥ～ꗥ❀</p>
+</div>
+
+<div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px;">
+    <div class="product-container">
+        <a href="product7.html">
+            <img src="images/vecteezy_pineapple-cake-png-with-ai-generated_26758758.png" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover;">
+        </a>
+        <p style="text-align: center; font-weight: bold; font-size: 1.7em; margin-top: 10px; color: #FFA500;">Pineapple Pie</p>
+    </div>
+    <div class="product-container">
+        <a href="product8.html">
+            <img src="images/slushy.png" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover;">
+        </a>
+        <p style="text-align: center; font-weight: bold; font-size: 1.7em; margin-top: 10px; color: #FFA500;">Pineapple Slusy</p>
+    </div>
+    <div class="product-container">
+        <a href="product9.html">
+            <img src="images/clipart2528599.png" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover;">
+        </a>
+        <p style="text-align: center; font-weight: bold; font-size: 1.7em; margin-top: 10px; color: #FFA500;">Pineapple Drinks</p>
+    </div>
+    <div class="product-container">
+        <a href="product10.html">
+            <img src="images/pngimg.com - fanta_PNG41.png" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover;">
+        </a>
+        <p style="text-align: center; font-weight: bold; font-size: 1.7em; margin-top: 10px; color: #FFA500;">Pineapple Drinks</p>
+    </div>
+</div>
+
+<div style="display: flex; justify-content: space-around; flex-wrap: wrap; margin-top: 20px;">
+    <div class="product-container">
+        <a href="product11.html">
+            <img src="images/kindpng_6166023.png" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover;">
+        </a>
+        <p style="text-align: center; font-weight: bold; font-size: 1.7em; margin-top: 10px; color: #FFA500;">Pineapple Can</p>
+    </div>
+    <div class="product-container">
+        <a href="product12.html">
+            <img src="images/kindpng_7840352.png" alt="Product Image" style="width: 100%; height: 100%; object-fit: cover;">
+        </a>
+        <p style="text-align: center; font-weight: bold; font-size: 1.7em; margin-top: 10px; color: #FFA500;">Pineapple Limited Edition T Shirt</p>
+    </div>
+</div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+  <div class="reservation-payment-container">
+  <div class="reservation-form-container">
+    <div class="reservation-form">RESERVATION FORM</div>
+    <div class="form-group">
+      <label class="form-label" for="full-name">Full Name</label>
+      <input class="form-input" type="text" id="full-name" name="full-name">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="email">Email Address</label>
+      <input class="form-input" type="email" id="email" name="email">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="phone">Phone Number</label>
+      <input class="form-input" type="tel" id="phone" name="phone">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="guests">Number of Guests</label>
+      <input class="form-input" type="number" id="guests" name="guests" min="1">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="reservation-date">Reservation Date</label>
+      <input class="form-input" type="text" id="reservation-date" name="reservation-date" placeholder="dd/mm/yyyy">
+    </div>
+    <div class="form-group">
+      <label class="form-label" for="reservation-time">Reservation Time</label><br>
+      <input type="checkbox" id="morning" name="time" value="morning">
+      <label for="morning">Morning</label><br>
+      <input type="checkbox" id="afternoon" name="time" value="afternoon">
+      <label for="afternoon">Afternoon</label><br>
+      <input type="checkbox" id="night" name="time" value="night">
+      <label for="night">Night</label>
+    </div>
+  </div>
+
+  <div class="container-right">
+  <div class="payment-container">
+    <h2>HELP US TO GROW OUR BUSSNESS</h2>
+
+      <div class="form-group">
+      <label for="additional-request">Additional Request</label><br>
+      <textarea id="additional-request" name="additional-request" rows="4" cols="50"></textarea>
+    <BR>
+    <label for="credit-card">Credit Card Number</label><br>
+    <input type="text" id="credit-card" name="credit-card"><br><br>
+    <label for="credit-card">Payment Accepted Card</label><br>
+    <div class="form-check">
+      <input type="checkbox" id="terms-conditions" name="terms-conditions">
+      <label for="terms-conditions">I agree to the terms and conditions.</label>
+    </div>
+    <button class="submit-button">Submit</button>
+    </div>
+  </div>
+</div>
+  
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="connect-container">
+  <h3>Connect with us:</h3>
+  <div class="logo-container">
+    <div class="circle">
+      <img src="images/_253e4c9e-53c0-4c52-9898-14d01e9df5ff.jpg" alt="Your Logo">
+    </div>
+  </div>
+
+  <a href="https://www.yahoo.com" target="_blank">
+    <img src="images/yahoo.png" alt="Yahoo Icon"> Yahoo
+  </a> |
+  <a href="https://www.facebook.com" target="_blank">
+    <img src="images/facebook.png" alt="Facebook Icon"> Facebook
+  </a> |
+  <a href="https://www.youtube.com" target="_blank">
+    <img src="images/youtube.png" alt="YouTube Icon"> YouTube
+  </a> |
+  <a href="https://www.tiktok.com" target="_blank">
+    <img src="images/tik-tok.png" alt="TikTok Icon"> TikTok
+  </a>
+
+  <div class="opening-hours">
+  <p class="copyright">Copyright © [2024] Pineapple Paradise By Joshua A. Mendoza All rights reserved.</p>
+    <h3>Opening Hours</h3>
+    
+
+  <div class="latest-post">
+    <h3>Latest Post</h3>
+    <ul>
+      <li>Expand your mind, Change Everything - 14.02.2017</li>
+      <li>Places to get lost - 14.02.2017</li>
+      <li>Expand your bussness - 14.02.2017</li>
+      <li>Elevate your Expectation - 14.02.2017</li>
+    </ul>
+  </div>
+
+  <div class="privacy-policy">
+    <h3><a href="https://www.google.com/search?q=privacy+and+policy" target="_blank">Privacy Policy</a></h3>
+    <p>This Privacy Policy describes how Pineapple Paradise collects, uses, and protects the personal information you provide on this website.</p>
+  </div>
+</div>
+
+
+<script>
+  window.addEventListener('scroll', function() {
+    var video = document.getElementById('autoplay-video');
+    var videoContainer = document.querySelector('.video-container');
+    var videoRect = videoContainer.getBoundingClientRect();
+    var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+    
+    if (videoRect.top <= windowHeight && videoRect.bottom >= 0) {
+      video.classList.remove('hidden');
+    } else {
+      video.classList.add('hidden');
+    }
+  });
+
+
+  var replacementWords = ["AMAZING", "FANTASTIC", "INCREDIBLE", "DELICIOUS", "EXQUISITE"];
+
+function changeWord() {
+  var changingWord = document.getElementById('changing-word');
+  var currentWordIndex = 0;
+
+  setInterval(function() {
+    changingWord.classList.remove('show-word');
+    changingWord.textContent = replacementWords[currentWordIndex];
+    void changingWord.offsetWidth; 
+    changingWord.classList.add('show-word');
+    currentWordIndex = (currentWordIndex + 1) % replacementWords.length;
+  }, 3000);
+}
+
+window.onload = changeWord;
+
+
+window.onload = changeWord;
+
+
+</script>
+
+<script>
+
+  function showBuyContainer(link) {
+    var container = link.parentNode.querySelector('.buy-container');
+    container.style.display = 'block';
+  }
+
+  function hideBuyContainer(link) {
+    var container = link.parentNode.querySelector('.buy-container');
+    container.style.display = 'none';
+  }
+
+  window.addEventListener('scroll', function() {
+  var boxElements = document.querySelectorAll('.box');
+  var windowHeight = window.innerHeight;
+
+  boxElements.forEach(function(box) {
+    var boxPosition = box.getBoundingClientRect().top;
+
+    if (boxPosition < windowHeight) {
+      box.classList.add('animated');
+    } else {
+      box.classList.remove('animated');
+    }
+  });
+});
+
+
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

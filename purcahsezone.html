@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Details</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        width: 90%;
+        margin: 20px auto;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .dashboard-link {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        text-decoration: none;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    .dashboard-link:hover {
+        background-color: #0056b3;
+    }
+
+    .purchase-detail {
+        width: 100%;
+        border-collapse: collapse;
+        border: 2px solid black;
+    }
+
+    .purchase-item {
+        border-bottom: 1px solid #ddd;
+    }
+
+    .purchase-item:last-child {
+        border-bottom: none;
+    }
+
+    .purchase-item td {
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+        border: 1px solid black;
+    }
+
+    .cancel-button button,
+    .contact-button button {
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s ease;
+    }
+
+    .contact-modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+    }
+
+    .contact-modal.show {
+        display: block;
+    }
+
+    .total-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    }
+
+    @media only screen and (max-width: 768px) {
+        .container {
+            width: 95%;
+        }
+
+        .dashboard-link,
+        .cancel-button button,
+        .contact-button button {
+            font-size: 14px;
+        }
+
+        .purchase-item td {
+            padding: 5px;
+        }
+    }
+    </style>
+
+</head>
+<body>
+
+<div class="total-container">
+    <h3>Total Payment Amount:</h3>
+    <span id="totalPaymentAmount">0</span>
+</div>
+
+<div class="container">
+    <h1>Purchase Details</h1>
+    <a href="index.html" class="dashboard-link">Back to Dashboard</a>
+
+    <table class="purchase-detail">
+        <thead>
+            <tr>
+                <th>Product Image</th>
+                <th>Product Name</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Phone Number</th>
+                <th>Quantity</th>
+                <th>Payment Amount</th>
+                <th>Actions</th>
+                <th>Product ID</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <div id="contactModal" class="contact-modal">
+        <h2>Contact Details</h2>
+        <p>Contact: 09100101010</p>
+        <p>Email: deliveryrider@gmail.com</p>
+        <button onclick="hideContactModal()">Close</button>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+const productName = urlParams.get('productName');
+const name = urlParams.get('name');
+const age = urlParams.get('age');
+const address = urlParams.get('address');
+const phoneNumber = urlParams.get('phoneNumber');
+const quantity = urlParams.get('quantity');
+const paymentAmount = urlParams.get('paymentAmount');
+const productImage = urlParams.get('productImage');
+
+if (productName && name && age && address && phoneNumber && quantity && paymentAmount && productImage) {
+    let purchaseDetails = localStorage.getItem('purchase_details');
+    if (!purchaseDetails) {
+        purchaseDetails = [];
+    } else {
+        purchaseDetails = JSON.parse(purchaseDetails);
+    }
+
+    const productId = generateProductId();
+
+    purchaseDetails.push({
+        productName: productName,
+        name: name,
+        age: age,
+        address: address,
+        phoneNumber: phoneNumber,
+        quantity: quantity,
+        paymentAmount: paymentAmount,
+        productImage: productImage,
+        productId: productId 
+    });
+
+    localStorage.setItem('purchase_details', JSON.stringify(purchaseDetails));
+}
+
+function cancelOrder(cancelIndex) {
+    let purchaseDetails = localStorage.getItem('purchase_details');
+    if (!purchaseDetails) return;
+
+    purchaseDetails = JSON.parse(purchaseDetails);
+    if (purchaseDetails[cancelIndex]) {
+        purchaseDetails.splice(cancelIndex, 1);
+        localStorage.setItem('purchase_details', JSON.stringify(purchaseDetails));
+        window.location.href = window.location.href.split('?')[0];
+    }
+}
+
+const purchaseDetailContainer = document.querySelector('.purchase-detail tbody');
+let purchaseDetails = localStorage.getItem('purchase_details');
+if (purchaseDetails) {
+    purchaseDetails = JSON.parse(purchaseDetails);
+    purchaseDetails.forEach((purchase, index) => {
+        const row = purchaseDetailContainer.insertRow();
+        row.classList.add('purchase-item');
+
+        const productId = purchase.productId;
+
+        row.innerHTML = `
+            <td><img src="${purchase.productImage}" alt="${purchase.productName}"></td>
+            <td>${purchase.productName}</td>
+            <td>${purchase.name}</td>
+            <td>${purchase.age}</td>
+            <td>${purchase.address}</td>
+            <td>${purchase.phoneNumber}</td>
+            <td>${purchase.quantity}</td>
+            <td>${purchase.paymentAmount}</td>
+            <td>
+                <div class="cancel-button"><button onclick="cancelOrder(${index})">Cancel Order</button></div>
+                <div class="contact-button"><button onclick="showContactModal('${purchase.contact}')">Contact Your Product</button></div>
+            </td>
+            <td>${productId}</td>
+        `;
+    });
+} else {
+    purchaseDetailContainer.innerHTML = "<tr><td colspan='10'>No purchase details available.</td></tr>";
+}
+
+function showContactModal(contactDetails) {
+    const contactModal = document.getElementById('contactModal');
+    contactModal.classList.add('show');
+}
+
+function hideContactModal() {
+    const contactModal = document.getElementById('contactModal');
+    contactModal.classList.remove('show');
+}
+
+function generateProductId() {
+    return Math.floor(Math.random() * 9000) + 1000;
+}
+
+let totalPaymentAmount = 0;
+if (purchaseDetails) {
+    purchaseDetails.forEach((purchase) => {
+        totalPaymentAmount += parseInt(purchase.paymentAmount);
+    });
+}
+
+const totalPaymentAmountElement = document.getElementById('totalPaymentAmount');
+totalPaymentAmountElement.innerHTML = `₱${totalPaymentAmount} <div style="position: relative; display: inline-block;">INCLUDE RETURN <a href="#" id="questionMarkIcon" style="text-decoration: none; color: inherit; display: inline-block; border-radius: 50%; width: 20px; height: 20px; text-align: center; background-color: #000; color: white;">&#63;</a>
+<div id="returnInfoContainer" style="display: none; background-color: #fff; border: 1px solid #000; padding: 10px; position: absolute; top: 30px; left: 0;">
+    <p>When the driver delivers your order, please provide the exact payment amount You put in the amount Orders. The driver will return any change due.</p>
+</div></div>`;
+
+const returnInfoContainer = document.getElementById('returnInfoContainer');
+const questionMarkIcon = document.getElementById('questionMarkIcon');
+
+questionMarkIcon.addEventListener('click', () => {
+    returnInfoContainer.style.display = returnInfoContainer.style.display === 'none' ? 'block' : 'none';
+});
+
+    </script>
+</body>
+</html>
